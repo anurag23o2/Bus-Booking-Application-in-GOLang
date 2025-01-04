@@ -1,7 +1,0 @@
-services:
-  - name: bus-booking-app
-    type: web
-    env: go
-    buildCommand: go build -o main .
-    startCommand: ./main
-    plan: free

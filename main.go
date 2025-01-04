@@ -15,14 +15,16 @@ type UserData struct {
 	LastName        string    `json:"lastName"`
 	Email           string    `json:"email"`
 	NumberOfTickets uint      `json:"numberOfTickets"`
-	Date            time.Time `json:"date"`       // Date of booking
-	Source          string    `json:"source"`     // Source location
+	Date            time.Time `json:"date"`        // Date of booking
+	Source          string    `json:"source"`      // Source location
 	Destination     string    `json:"destination"` // Destination location
 }
 
 var bookings []UserData
 var mutex sync.Mutex
+
 const maxTickets uint = 100
+
 var totalTicketsSold uint = 0
 
 func main() {
@@ -30,6 +32,13 @@ func main() {
 
 	// Enable CORS
 	router.Use(cors.Default())
+
+	// Add a route for the root URL
+	router.GET("/", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{
+			"message": "Welcome to the Booking System API!",
+		})
+	})
 
 	// Get all bookings
 	router.GET("/bookings", func(c *gin.Context) {
