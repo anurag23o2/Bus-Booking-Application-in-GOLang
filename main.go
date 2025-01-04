@@ -33,13 +33,6 @@ func main() {
 	// Enable CORS
 	router.Use(cors.Default())
 
-	// Add a route for the root URL
-	router.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{
-			"message": "Welcome to the Booking System API!",
-		})
-	})
-
 	// Get all bookings
 	router.GET("/bookings", func(c *gin.Context) {
 		c.JSON(http.StatusOK, bookings)
@@ -69,7 +62,7 @@ func main() {
 			return
 		}
 
-		if booking.Source == "" || booking.Destination == "" {
+		if strings.TrimSpace(booking.Source) == "" || strings.TrimSpace(booking.Destination) == "" {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Source and destination cannot be empty"})
 			return
 		}
@@ -79,7 +72,7 @@ func main() {
 			return
 		}
 
-		if booking.Date.Before(time.Now()) {
+		if booking.Date.Before(time.Now().Add(-time.Minute)) {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Date cannot be in the past"})
 			return
 		}
