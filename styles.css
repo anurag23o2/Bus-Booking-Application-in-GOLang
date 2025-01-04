@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url("https://www.travipro.com/assets/images/flight/bustravel.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 165, 0, 0.73); /* Transparent orange background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: #fff; /* White text for contrast */
+    /* text-align: center; Center the text inside (if needed) */
+    font-size: 1.2em; /* Adjust font size as needed */
+}
+
+.form-container:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    background-color: whitesmoke;
+}
+
+.form-container h1 { /* Corrected selector */
+    text-align: center;
+    margin-bottom: 20px;
+    color: black; /* Added color for better visibility against background*/
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: black; /* Added color for better visibility against background*/
+}
+
+form input,
+form select,
+form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* To include padding and border in element's total width and height */
+}
+
+form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for scaling effect */
+}
+
+form button:hover {
+    background-color: #0056b3;
+}
+
+form button.clicked {
+    transform: scale(0.95); /* Scale down slightly on click */
+}
+
+/* Styles for the message */
+#response {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: rgba(0, 123, 255, 0.2); /* Light blue background */
+    border-radius: 5px;
+    text-align: center;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out;
+}
+
+#response.show-message {
+    opacity: 1;
+}
+
+.page-title {
+    text-align: center;
+    font-size: 2.5em; /* Slightly larger font size */
+    margin-top: 20px;
+    margin-bottom: 30px;
+    color: rgba(133, 5, 5, 0.73); /* White text for better contrast on the background image */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5); /* Stronger text shadow */
+    font-family: 'Montserrat', sans-serif; /* Example font - import it! */
+    animation: fadeInUp 1s ease-out; /* Add the animation */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start 20px below its final position */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Move to its final position */
+    }
+}
+
+/* Import the font (example with Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+
